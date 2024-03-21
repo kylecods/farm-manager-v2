@@ -12,10 +12,21 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxt/ui": "^2.11.0",
+    "@nuxtjs/tailwindcss": "^6.11.4",
     "@unocss/nuxt": "^0.57.7",
     "@vueuse/nuxt": "^10.6.1",
     "nuxt": "^3.8.2",
+    "shadcn-nuxt": "^0.10.2",
+    "typescript": "^5.4.3",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-vue-next": "^0.359.0",
+    "radix-vue": "^1.5.3",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
