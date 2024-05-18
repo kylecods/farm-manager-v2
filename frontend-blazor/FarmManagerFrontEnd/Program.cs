@@ -1,4 +1,5 @@
 using FarmManagerFrontEnd.Components;
+using FarmManagerFrontEnd.Models;
 using Havit.Blazor.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHxServices();
+builder.Services.AddTransient<LoginViewModel>();
 
 var app = builder.Build();
 

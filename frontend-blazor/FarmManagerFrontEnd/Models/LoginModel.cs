@@ -1,15 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.AspNetCore.Components;
 
 namespace FarmManagerFrontEnd.Models;
 
-public record LoginModel
+public partial class LoginViewModel : BaseViewModel
 {
-    [Required]
-    [EmailAddress]
-    public string Email { get; set; }
-        
-    [Required]
-    public string Password { get; set; }
-        
-    public bool RememberMe { get; set; }
+    [Required] [EmailAddress] [ObservableProperty] private string _email;
+
+    [Required] [ObservableProperty] private string _password;
+
+    [ObservableProperty] private bool _rememberMe;
+
+    [RelayCommand]
+    public Task LoginSubmit(NavigationManager navigationManager)
+    {
+        return IsBusyFor(async () =>
+        {
+            await Task.Delay(3000);
+            navigationManager.NavigateTo("register");
+        });
+    }
 }
