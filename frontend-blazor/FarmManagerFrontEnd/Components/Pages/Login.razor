@@ -1,0 +1,33 @@
+﻿@page "/"
+@layout NoLayout
+@rendermode InteractiveServer
+
+<div class="row justify-content-center">
+    <div class="col-6 align-self-center">
+        <HxCard CssClass="p-2">
+            <BodyTemplate>
+                <HxCardTitle CssClass="text-center">Enter your email to login</HxCardTitle>
+                <LoginForm Submit="OnSubmit" Model="_loginModel"/>
+            </BodyTemplate>
+        </HxCard>
+    </div>
+</div>
+
+@code
+{
+    [Inject]
+    public NavigationManager Navigation { get; init; }
+    
+    private LoginModel _loginModel = default!;
+    
+    protected override void OnInitialized()
+    {
+        _loginModel = new();
+    }
+
+    private void OnSubmit()
+    {
+        Navigation.NavigateTo("home");
+    }
+}
+

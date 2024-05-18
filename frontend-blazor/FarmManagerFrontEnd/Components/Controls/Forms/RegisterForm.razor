@@ -1,0 +1,15 @@
+﻿<EditForm Model="@Model" OnValidSubmit="Submit" FormName="farm_register">
+    <DataAnnotationsValidator />
+    <HxInputText Label="Email" Type="InputType.Email" @bind-Value="@Model.Email" Placeholder="Enter Email"/>
+    <HxInputText Label="Password" Type="InputType.Password" @bind-Value="@Model.Password" Placeholder="Enter Password"/>
+    <HxInputText Label="Confirm Password" Type="InputType.Password" @bind-Value="@Model.ConfirmPassword" Placeholder="Confirm Password"/>
+
+    <HxSubmit Text="Register" Color="ThemeColor.Success" CssClass="btn-block"/>
+</EditForm>
+
+@code {
+    
+    [Parameter] public EventCallback Submit { get; set; }
+    
+    [Parameter] public RegisterModel Model { get; set; }
+}
