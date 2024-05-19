@@ -1,15 +1,17 @@
-﻿<EditForm Model="@Model" OnValidSubmit="Submit" FormName="farm_register">
+﻿@inherits BaseComponentBase<RegisterViewModel>
+
+<EditForm Model="@ViewModel" OnValidSubmit="@(() => ViewModel.RegisterCommand.Execute(NavigationManager))" FormName="farm_register">
     <DataAnnotationsValidator />
-    <HxInputText Label="Email" Type="InputType.Email" @bind-Value="@Model.Email" Placeholder="Enter Email"/>
-    <HxInputText Label="Password" Type="InputType.Password" @bind-Value="@Model.Password" Placeholder="Enter Password"/>
-    <HxInputText Label="Confirm Password" Type="InputType.Password" @bind-Value="@Model.ConfirmPassword" Placeholder="Confirm Password"/>
+    <HxInputText Label="Email" Type="InputType.Email" @bind-Value="@ViewModel.Email" Placeholder="Enter Email" />
+    <HxInputText Label="Password" Type="InputType.Password" @bind-Value="@ViewModel.Password" Placeholder="Enter Password" />
+    <HxInputText Label="Confirm Password" Type="InputType.Password" @bind-Value="@ViewModel.ConfirmPassword" Placeholder="Confirm Password" />
 
-    <HxSubmit Text="Register" Color="ThemeColor.Success" CssClass="btn-block"/>
+    @if (ViewModel.IsBusy)
+    {
+        <HxSpinner Type="SpinnerType.Grow" />
+    }
+    else
+    {
+        <HxSubmit Text="Register" Color="ThemeColor.Success" CssClass="btn-block" />
+    }
 </EditForm>
-
-@code {
-    
-    [Parameter] public EventCallback Submit { get; set; }
-    
-    [Parameter] public RegisterModel Model { get; set; }
-}

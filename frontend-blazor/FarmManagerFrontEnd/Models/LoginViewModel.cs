@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace FarmManagerFrontEnd.Models;
 
-public partial class LoginViewModel : BaseViewModel
+public partial class LoginViewModel : FormBaseViewModel
 {
     [Required] [EmailAddress] [ObservableProperty] private string _email;
 
@@ -14,12 +14,14 @@ public partial class LoginViewModel : BaseViewModel
     [ObservableProperty] private bool _rememberMe;
 
     [RelayCommand]
-    public Task LoginSubmit(NavigationManager navigationManager)
+    public Task Login(NavigationManager navigationManager) => FormSubmitAsync(navigationManager);
+
+    protected override Task FormSubmitAsync(NavigationManager? navigationManager = null)
     {
         return IsBusyFor(async () =>
         {
             await Task.Delay(3000);
-            navigationManager.NavigateTo("register");
+            navigationManager!.NavigateTo("register");
         });
     }
 }

@@ -8,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHxServices();
+
+//view models
 builder.Services.AddTransient<LoginViewModel>();
+builder.Services.AddTransient<RegisterViewModel>();
 
 var app = builder.Build();
 

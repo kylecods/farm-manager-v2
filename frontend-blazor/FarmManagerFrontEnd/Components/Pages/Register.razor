@@ -6,26 +6,8 @@
         <HxCard CssClass="p-2">
             <BodyTemplate>
                 <HxCardTitle CssClass="text-center">Enter the details below</HxCardTitle>
-                <RegisterForm Submit="OnSubmit" Model="_registerModel"/>
+                <RegisterForm />
             </BodyTemplate>
         </HxCard>
     </div>
 </div>
-
-@code
-{
-    [Inject]
-    public NavigationManager Navigation { get; init; }
-    
-    private RegisterModel _registerModel = default!;
-    
-    protected override void OnInitialized()
-    {
-        _registerModel = new();
-    }
-
-    private void OnSubmit()
-    {
-        Navigation.NavigateTo("home");
-    }
-}

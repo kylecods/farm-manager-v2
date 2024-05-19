@@ -1,7 +1,7 @@
-﻿@inherits MvvmComponentBase<LoginViewModel>
+﻿@inherits BaseComponentBase<LoginViewModel>
 
 
-<EditForm Model="@ViewModel" OnValidSubmit="@(() => ViewModel.LoginSubmitCommand.Execute(NavigationManager))" FormName="farm_login">
+<EditForm Model="@ViewModel" OnValidSubmit="@(() => ViewModel.LoginCommand.Execute(NavigationManager))" FormName="farm_login">
     <DataAnnotationsValidator />
     <HxInputText Label="Email" Type="InputType.Email" @bind-Value="@ViewModel.Email" Placeholder="Enter Email"/>
     <HxInputText Label="Password" Type="InputType.Password" @bind-Value="@ViewModel.Password" Placeholder="Enter Password"/>

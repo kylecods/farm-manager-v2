@@ -34,7 +34,16 @@ public partial class BaseViewModel : ObservableValidator,IDisposable
 
     public void Dispose()
     {
-        _isBusyLock.Dispose();
+        Dispose(true);
         GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        // Cleanup
+        if (disposing)
+        {
+            _isBusyLock.Dispose();
+        }
     }
 }
