@@ -1,0 +1,44 @@
+﻿@inherits BaseComponentBase<WorkViewModel>
+
+@if (ViewModel.IsBusy)
+{
+
+	<div class="d-flex justify-content-center">
+		<HxSpinner />
+	</div>
+
+}
+else
+{
+	<QuickGrid Items="@ViewModel.Workers" Class="table table-striped table-hover">
+
+		<PropertyColumn Title="Name" Class="p-2" Property="wk => wk.WorkerName" Align="Align.Right"/>
+		<PropertyColumn Title="Phone" Class="p-2" Property="wk => wk.WorkerPhoneNumber" Align="Align.Right"/>
+		<TemplateColumn title="Actions" Class="p-2">
+			<HxContextMenu>
+				<HxContextMenuItem Icon="BootstrapIcon.Pencil" OnClick="EditEvent">
+					Edit
+				</HxContextMenuItem>
+				<HxContextMenuItem Icon="BootstrapIcon.Trash" OnClick="DeleteEvent">
+					Delete
+				</HxContextMenuItem>
+			</HxContextMenu>
+		</TemplateColumn>
+
+	</QuickGrid>
+}
+
+@code {
+
+	[Parameter] public EventCallback EditEvent { get; set; }
+	
+	[Parameter] public EventCallback DeleteEvent { get; set; }
+
+	protected override Task OnInitializedAsync()
+	{
+		 ViewModel.LoadItemsCommand.Execute(null);
+
+		 return Task.CompletedTask;
+	}
+
+}

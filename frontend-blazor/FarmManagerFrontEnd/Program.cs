@@ -12,6 +12,7 @@ builder.Services.AddHxServices();
 //view models
 builder.Services.AddTransient<LoginViewModel>();
 builder.Services.AddTransient<RegisterViewModel>();
+builder.Services.AddTransient<WorkViewModel>();
 
 var app = builder.Build();
 

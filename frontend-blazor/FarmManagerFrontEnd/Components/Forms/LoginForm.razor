@@ -1,6 +1,5 @@
 ﻿@inherits BaseComponentBase<LoginViewModel>
 
-
 <EditForm Model="@ViewModel" OnValidSubmit="@(() => ViewModel.LoginCommand.Execute(NavigationManager))" FormName="farm_login">
     <DataAnnotationsValidator />
     <HxInputText Label="Email" Type="InputType.Email" @bind-Value="@ViewModel.Email" Placeholder="Enter Email"/>

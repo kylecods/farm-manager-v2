@@ -9,6 +9,7 @@
     <ItemGroup>
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
       <PackageReference Include="Havit.Blazor.Components.Web.Bootstrap" Version="4.6.7" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.5" />
     </ItemGroup>
 
 </Project>
